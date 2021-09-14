@@ -4,7 +4,7 @@ use std::{
     sync::{atomic::AtomicU32, Arc},
 };
 
-struct AtomicBox<T: Send> {
+pub struct AtomicBox<T: Send> {
     ptr: AtomicPtr<T>,
 }
 
@@ -71,7 +71,7 @@ impl<T: Send> Drop for AtomicBox<T> {
     }
 }
 
-struct AtomicArc<T> {
+pub struct AtomicArc<T> {
     ptr: AtomicPtr<T>,
     readers: AtomicU32,
 }
